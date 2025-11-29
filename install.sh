@@ -30,30 +30,26 @@ else
   exit 1
 fi
 
-if which xremap > /dev/null 2>&1; then
-  echo "INFO: xremap is already installed. Skipping...."
-else
-  # Download latest release from GitHub
-  wget https://github.com/xremap/xremap/releases/latest/download/$ARCHIVE_NAME
+# Always download latest xremap release from GitHub
+wget https://github.com/xremap/xremap/releases/latest/download/$ARCHIVE_NAME
 
-  # Extract the archive
-  echo "INFO: Extracting the archive..."
-  if ! command -v unzip &> /dev/null; then
-    echo "ERROR: Command \"unzip\" not found."
-    exit 0
-  fi
-  unzip -o ./xremap-linux-${ARCH}-*.zip
-
-  # Remove old binary (if any)
-  if command -v gnome-terminal &> /dev/null ; then
-      echo "INFO: Removing old binary..."
-      sudo rm -rf /usr/local/bin/xremap
-  fi
-
-  # Install new binary (if any)
-  echo "INFO: Installing the binary..."
-  sudo cp ./xremap /usr/local/bin
+# Extract the archive
+echo "INFO: Extracting the archive..."
+if ! command -v unzip &> /dev/null; then
+  echo "ERROR: Command \"unzip\" not found."
+  exit 0
 fi
+unzip -o ./xremap-linux-${ARCH}-*.zip
+
+# Remove old binary (if any)
+if command -v gnome-terminal &> /dev/null ; then
+    echo "INFO: Removing old binary..."
+    sudo rm -rf /usr/local/bin/xremap
+fi
+
+# Install new binary (if any)
+echo "INFO: Installing the binary..."
+sudo cp ./xremap /usr/local/bin
 
 # Tweaking server access control for X11
 # https://github.com/k0kubun/xremap#x11
@@ -66,6 +62,13 @@ CONFIG_DIR=~/.config/gnome-macos-remap/
 echo "INFO: Copying the xremap config file..."
 mkdir -p $CONFIG_DIR
 cp $BASE_DIR/config.yml $CONFIG_DIR
+
+# Stop and disable service if already running
+if systemctl is-active --user --quiet gnome-macos-remap ; then
+  echo "INFO: Stopping and disabling systemd gnome-macos-remap service..."
+  systemctl --user stop gnome-macos-remap
+  systemctl --user disable gnome-macos-remap
+fi
 
 # Copy systemd service file
 SERVICE_DIR=~/.local/share/systemd/user/
@@ -93,7 +96,7 @@ systemctl --user start gnome-macos-remap
 echo "INFO: Tweaking GNOME and Mutter keybindings..."
 
 # Ensure default system xkb-options are not turned on - may interfere
-gsettings reset org.gnome.desktop.input-sources xkb-options 
+gsettings reset org.gnome.desktop.input-sources xkb-options
 
 # Disable overview key ⌘ - interferes with ⌘ + ... combinations
 gsettings set org.gnome.mutter overlay-key ''
@@ -160,7 +163,7 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver "[]"
 
 
 # Download and enable Xremap GNOME extension (for Wayland only)
-systemctl --user status gnome-macos-remap
+# systemctl --user status gnome-macos-remap
 if [ "${XDG_SESSION_TYPE}" == "wayland" ]; then
   # Check if xremap extension is enabled
   if gnome-extensions list | grep -q "xremap@k0kubun.com"; then
