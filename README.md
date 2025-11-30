@@ -38,6 +38,8 @@ chmod +x ./uninstall.sh
 
 ## Logbook
 
+`Nov 29, 2025` • Tweaks. [Fixed install](https://github.com/xremap/xremap/discussions/496) on Debian Trixie.
+
 `May 24, 2024` • Added keybindings for the [GNOME Console](https://apps.gnome.org/Console/) app.
 
 `Oct 01, 2023` • [Blocker issue](https://github.com/k0kubun/xremap/issues/100) is resolved. Repository is ready for testing.

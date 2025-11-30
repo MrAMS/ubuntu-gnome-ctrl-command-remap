@@ -181,5 +181,6 @@ if [ "${XDG_SESSION_TYPE}" == "wayland" ]; then
   fi
 else
   gnome-extensions disable xremap@k0kubun.com
-  echo "INFO: Please restart your computer."
 fi
+
+echo "INFO: Computer restart may be required."
