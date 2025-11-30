@@ -84,8 +84,13 @@ cp $BASE_DIR/bin/*.sh $BIN_DIR
 
 # Run Xremap without sudo
 # https://github.com/xremap/xremap?tab=readme-ov-file#running-xremap-without-sudo
-sudo gpasswd -a ${USER} input
+
+# User should be able to use `evdev` witout sudo
 echo 'KERNEL=="uinput", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/input.rules
+# User should be able to use `uinput` without sudo
+sudo gpasswd -a ${USER} input
+# Load uinput module at the startup (Debian issue)
+echo uinput | sudo tee /etc/modules-load.d/uinput.conf
 
 # Instantiate the service
 systemctl --user daemon-reload
