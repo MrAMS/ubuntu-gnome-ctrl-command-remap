@@ -59,39 +59,6 @@ keymap:
       only: [org.gnome.Terminal, org.gnome.Console, org.gnome.Ptyxis]
     remap:
       Super-C: Ctrl-C
-  - name: Terminal and Console - make Ctrl work in `nano` editor # keycombiner.com/collections/nano/
-    application:
-      only: [org.gnome.Terminal, org.gnome.Console, org.gnome.Ptyxis]
-    remap:
-      Super-Q: Ctrl-Q # Interferes with GNOME close window - not sure how to work around
-      Super-W: Ctrl-W
-      Super-E: Ctrl-E
-      Super-E: Ctrl-R
-      Super-T: Ctrl-T
-      Super-Y: Ctrl-Y
-      Super-U: Ctrl-U
-      Super-O: Ctrl-O
-      Super-P: Ctrl-P
-      Super-KEY_RIGHTBRACE: Ctrl-KEY_RIGHTBRACE
-      Super-A: Ctrl-A
-      Super-S: Ctrl-S
-# How to implement a org.gnome.Terminal key combination that conflicts with some GNOME keybinding?
-# Make a script similar to the one below. Script unsets the GNOME keybinding, then sends keys, then restores keybinding back.
-      Super-D:
-        launch: ["sh", "~/.local/bin/terminal-console-ctrl-d.sh"]
-      Super-F: Ctrl-F
-      Super-G: Ctrl-G
-      Super-H: Ctrl-H
-      Super-J: Ctrl-J
-      Super-K: Ctrl-K
-      Super-L: Ctrl-L
-      Super-Z: Ctrl-Z
-      Super-X: Ctrl-X
-#     Super-C: Ctrl-C # declared in previous sections
-      Super-V: Ctrl-V
-      Super-B: Ctrl-B
-      Super-N: Ctrl-N
-      Super-KEY_SLASH: Ctrl-KEY_SLASH
   - name: Console and Ptyxis shortcuts
     application:
       only: [org.gnome.Console, org.gnome.Ptyxis]
