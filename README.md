@@ -7,7 +7,7 @@ This keyboard remap is based on the [Xremap](https://github.com/k0kubun/xremap) 
 ![Gnome macOS Remap Icon](./resources/gnome-macos-remap-wayland.png#gh-light-mode-only)
 ![Gnome macOS Remap Icon](./resources/gnome-macos-remap-wayland-dark.png#gh-dark-mode-only)
 
-> This is a different fork of [gnome-macos-remap-wayland](https://github.com/petrstepanov/gnome-macos-remap-wayland) which is focused on using the `Win` key like `Command` key **only**.
+> This is a fork of [gnome-macos-remap-wayland](https://github.com/petrstepanov/gnome-macos-remap-wayland). This fork focused on using the `Win` key like `Command` key **only**.
 
 ## How does it work?
 Script downloads the latest version of the `xremap` remapper for your architecture. Configuration file `config.yml` contains majority of the remapping instructions. On top of that the default GNOME shell and Mutter keybindings are modified. A systemd service is created and enabled for a particular user. Therefore after the install other users on the system will not be affected by the remap. 
