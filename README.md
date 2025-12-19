@@ -42,4 +42,5 @@ chmod +x ./uninstall.sh
 
 ## Note
 
-You must config the IDE (e.g. Zed, VSCode) internal terminal yourself.
+### IDE Integrated Terminal
+You must config the IDE (e.g. Zed, VSCode) integrated terminal via its settings yourself.

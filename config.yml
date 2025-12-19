@@ -7,10 +7,13 @@ modmap:
     #    application:
     #      not: [org.gnome.Terminal, org.gnome.Console]
     remap:
-      LeftCtrl: LeftMeta
-      LeftMeta: LeftCtrl
-      RightCtrl: RightMeta
-      RightMeta: RightCtrl
+      KEY_LEFTCTRL: KEY_LEFTMETA
+      KEY_LEFTMETA: KEY_LEFTCTRL
+      # KEY_CAPSLOCK: # macOS style CapsLock
+      #   held: KEY_CAPSLOCK
+      #   alone: [KEY_RIGHTMETA, KEY_SPACE]
+      #   alone_timeout_millis: 200
+
 # `keymap` section
 # For remapping a sequence of key combinations to another sequence of key combinations
 keymap:
@@ -30,6 +33,7 @@ keymap:
       only: [Gnome-terminal, org.gnome.Console, org.gnome.Ptyxis]
     remap:
       Super-C: Ctrl-C
+
   - name: Console and Ptyxis shortcuts
     application:
       only: [org.gnome.Console, org.gnome.Ptyxis]
