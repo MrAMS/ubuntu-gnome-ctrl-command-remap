@@ -28,7 +28,7 @@ keymap:
       Alt-Backspace: Ctrl-Backspace
   - name: Delete complete line # TODO - check on macOS. Not sure how to delete before and after cursor.
     application:
-      not: org.gnome.Terminal
+      not: Gnome-terminal
     remap:
       Ctrl-K: Ctrl-D
 #  TODO: Next word
@@ -45,7 +45,7 @@ keymap:
       # Enter: F2              # Rename. Conflict when need to hit `Enter` in focused address bar.
   - name: Terminal copy and paste and window management
     application:
-      only: org.gnome.Terminal
+      only: Gnome-terminal
     remap:
       Ctrl-C: Shift-Super-C
       Ctrl-V: Shift-Super-V
@@ -56,7 +56,7 @@ keymap:
       Ctrl-F: Shift-Super-F
   - name: Terminal and Console interrupt
     application:
-      only: [org.gnome.Terminal, org.gnome.Console, org.gnome.Ptyxis]
+      only: [Gnome-terminal, org.gnome.Console, org.gnome.Ptyxis]
     remap:
       Super-C: Ctrl-C
   - name: Console and Ptyxis shortcuts
