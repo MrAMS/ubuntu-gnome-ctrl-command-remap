@@ -1,9 +1,13 @@
-# GNOME → macOS Keyboard Remap for Wayland
+# Ctrl/Command Keyboard Remap for Ubuntu Gnome Desktop
+
+**Use Win+C/Win+V for copy/paste on both GUI Apps and Gnome Terminals**
 
 This keyboard remap is based on the [Xremap](https://github.com/k0kubun/xremap) functionality and works with Wayland and Xorg.
 
 ![Gnome macOS Remap Icon](./resources/gnome-macos-remap-wayland.png#gh-light-mode-only)
 ![Gnome macOS Remap Icon](./resources/gnome-macos-remap-wayland-dark.png#gh-dark-mode-only)
+
+> This is a different fork of [gnome-macos-remap-wayland](https://github.com/petrstepanov/gnome-macos-remap-wayland) which is focused on using the `Win` key like `Command` key **only**.
 
 ## How does it work?
 Script downloads the latest version of the `xremap` remapper for your architecture. Configuration file `config.yml` contains majority of the remapping instructions. On top of that the default GNOME shell and Mutter keybindings are modified. A systemd service is created and enabled for a particular user. Therefore after the install other users on the system will not be affected by the remap. 
@@ -23,7 +27,7 @@ chmod +x ./install.sh
 ./install.sh
 ```
 
-3. Install and enable [this GNOME extension](https://extensions.gnome.org/extension/5060/xremap/).
+3. Install and **enable** [this GNOME extension](https://extensions.gnome.org/extension/5060/xremap/) (DO NOT FORGET TO ENABLE IT).
 4. Restart your computer.
 
 ## How to uninstall
@@ -36,14 +40,6 @@ chmod +x ./uninstall.sh
 
 2. Restart your computer.
 
-## Logbook
+## Note
 
-`Nov 29, 2025` • Tweaks. [Fixed install](https://github.com/xremap/xremap/discussions/496) on Debian Trixie.
-
-`May 24, 2024` • Added keybindings for the [GNOME Console](https://apps.gnome.org/Console/) app.
-
-`Oct 01, 2023` • [Blocker issue](https://github.com/k0kubun/xremap/issues/100) is resolved. Repository is ready for testing.
-
-`May 23, 2021` • Moving to [Xremap](https://github.com/k0kubun/xremap) functionality instead.
-
-`Dec 13, 2021` • First commit, testing out the [Key Mapper](https://github.com/sezanzeb/key-mapper).
+You must config the IDE (e.g. Zed, VSCode) internal terminal yourself.
