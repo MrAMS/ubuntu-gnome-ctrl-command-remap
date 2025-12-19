@@ -1,6 +1,6 @@
 # Ctrl/Command Keyboard Remap for Ubuntu Gnome Desktop
 
-**Use Win+C/Win+V for copy/paste on both GUI Apps and Gnome Terminals**
+**Use Win+C/Win+V like ⌘ Command for copy/paste on both GUI Apps and Gnome Terminals**
 
 This keyboard remap is based on the [Xremap](https://github.com/k0kubun/xremap) functionality and works with Wayland and Xorg.
 
