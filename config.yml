@@ -4,8 +4,8 @@ keypress_delay_ms: 10
 # For key-to-key remapping (no combinations). Remapping a key to a modifier key (e.g. CapsLock to Control_L) is supported only in `modmap` section
 modmap:
   - name: Make ⌘ act as Ctrl
-#    application:
-#      not: [org.gnome.Terminal, org.gnome.Console]
+    #    application:
+    #      not: [org.gnome.Terminal, org.gnome.Console]
     remap:
       LeftCtrl: LeftMeta
       LeftMeta: LeftCtrl
@@ -14,35 +14,6 @@ modmap:
 # `keymap` section
 # For remapping a sequence of key combinations to another sequence of key combinations
 keymap:
-#  - name: Test
-#    remap:
-#      Shift-A: b
-  - name: Make ⌘← and ⌘→ work as Home and End (with Shift for selection)
-    remap:
-      Ctrl-Left: Home
-      Ctrl-Right: End
-      Shift-Ctrl-Left: Shift-Home
-      Shift-Ctrl-Right: Shift-End
-  - name: Delete word
-    remap:
-      Alt-Backspace: Ctrl-Backspace
-  - name: Delete complete line # TODO - check on macOS. Not sure how to delete before and after cursor.
-    application:
-      not: Gnome-terminal
-    remap:
-      Ctrl-K: Ctrl-D
-#  TODO: Next word
-#  TODO: Previous word
-  - name: Nautilus (Files) shortcuts
-    application:
-      only: org.gnome.Nautilus
-    remap:
-      Ctrl-Up: Alt-Up          # Go Up
-      Ctrl-Down: Enter         # Go Down. Using `Enter` here because `Alt-Down` does not open files, only goes down.
-      Ctrl-Backspace: Delete   # Move to Trash
-      Shift-Ctrl-Dot: Ctrl-H   # Show/Hide Hidden Files
-      Shift-Ctrl-G: Ctrl-L     # Enter Location
-      # Enter: F2              # Rename. Conflict when need to hit `Enter` in focused address bar.
   - name: Terminal copy and paste and window management
     application:
       only: Gnome-terminal
@@ -70,9 +41,3 @@ keymap:
       Ctrl-T: Ctrl-Shift-T # New tab
       Ctrl-W: Ctrl-Shift-W # Close tab
       Ctrl-F: Shift-Ctrl-F # Find
-  - name: Eclipse context assist and switch header/source
-    application:
-      only: Eclipse
-    remap:
-      Super-KEY_SPACE: Alt-KEY_SPACE
-      Super-KEY_TAB: Alt-KEY_TAB
