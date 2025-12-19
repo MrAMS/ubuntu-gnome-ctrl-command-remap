@@ -1,4 +1,4 @@
-# Ctrl/Command Keyboard Remap for Ubuntu Gnome Desktop
+# ⌘ Command Keyboard Remap for Ubuntu Gnome Desktop
 
 **Use Win+C/Win+V like ⌘ Command for copy/paste on both GUI Apps and Gnome Terminals**
 
