@@ -76,12 +76,6 @@ echo "INFO: Installing systemd service..."
 mkdir -p $SERVICE_DIR
 cp $BASE_DIR/gnome-macos-remap.service $SERVICE_DIR
 
-# Copy bash scripts
-BIN_DIR=~/.local/bin/
-echo "INFO: Copying bash scripts..."
-mkdir -p $BIN_DIR
-cp $BASE_DIR/bin/*.sh $BIN_DIR
-
 # Run Xremap without sudo
 # https://github.com/xremap/xremap?tab=readme-ov-file#running-xremap-without-sudo
 

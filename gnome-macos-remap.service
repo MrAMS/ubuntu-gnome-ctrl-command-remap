@@ -1,11 +1,13 @@
 [Unit]
 Description=GNOME -> macOS Remap
+StartLimitBurst=20
+StartLimitIntervalSec=30s
 
 [Service]
 Type=simple
-Restart=on-failure
-RestartSec=10
-ExecStart=xremap %h/.config/gnome-macos-remap/config.yml
+Restart=always
+RestartSec=3
+ExecStart=xremap %h/.config/gnome-macos-remap/config.yml --watch=device
 
 [Install]
 WantedBy=default.target

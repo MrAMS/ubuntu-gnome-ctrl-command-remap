@@ -1,17 +1,27 @@
 #!/bin/bash
 
 # Stop and disable the systemd service
-sudo systemctl stop gnome-macos-remap
-sudo systemctl disable gnome-macos-remap
+systemctl --user stop gnome-macos-remap
+systemctl --user disable gnome-macos-remap
 
 # Remove xremap executable
 sudo rm /usr/local/bin/xremap
 
+# Remove udev rules
+echo "INFO: Removing udev rules..."
+sudo rm -f /etc/udev/rules.d/99-xremap-restart.rules
+sudo rm -f /etc/udev/rules.d/input.rules
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+
 # Remove tweak in /usr/share/dbus-1/session.conf - delete line containing "<!-- xremap -->"
 sudo sed -i "/xremap/d" /usr/share/dbus-1/session.conf
 
-# Remove xremap config file
-sudo rm -rf /usr/local/share/gnome-macos-remap/
+# Remove xremap config file and service
+echo "INFO: Removing xremap config and service files..."
+rm -rf ~/.config/gnome-macos-remap/
+rm -f ~/.local/share/systemd/user/gnome-macos-remap.service
+systemctl --user daemon-reload
 
 # Reset gsettings
 echo "INFO: Resetting GNOME and Mutter keybindings..."
